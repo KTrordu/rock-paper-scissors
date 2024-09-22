@@ -8,6 +8,7 @@ body {
     background-image: url("/img/background.jpg");
     background-repeat: no-repeat;
     background-size: auto;
+    overflow: hidden;
 }
 
 #head-cont {
@@ -76,4 +77,35 @@ body {
 
 #game-state {
     color: white;
+}
+
+@media only screen and (min-width: 768px) {
+    .choices-container {
+        flex-direction: row;
+    }
+
+    .choices{
+        width: 20%;
+        margin-bottom: 4vw;
+        margin-right: 10vw;
+        margin-top: 5vw;
+    }
+
+    .choices:last-child {
+        margin-right: 0;
+    }
+
+    #site-header, #score-display, #game-state {
+        font-size: 3em;
+    }
+
+    #site-header {
+        margin-bottom: 0;
+    }
+
+    #reset-button {
+        font-size: 3em;
+        margin-top: 2vw;
+    }
+
 }
