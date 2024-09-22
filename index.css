@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
+    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    background-image: url("/img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+#head-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#site-header {
+    color: white;
+}
+
+.choices-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.choices {
+    width: 30%;
+    margin-bottom: 12vw;
+}
+
+.choices:hover {
+    cursor: pointer;
+}
+
+.score-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#score-display {
+    font-weight: bold;
+    font-size: 2em;
+    color: white;
+}
+
+.reset-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#reset-button {
+    margin-top: 6vw;
+    font-size: 2em;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+}
+
+#reset-button:hover {
+    cursor: pointer;
+}
+
+.state-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#game-state {
+    color: white;
+}
