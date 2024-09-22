@@ -1,4 +1,19 @@
-const choicesEl = document.querySelectorAll(".choices");
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+import {getDatabase,
+    ref,
+    onValue,
+    set
+    } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-database.js";
+
+const firebaseConfig = {
+    databaseURL : 
+    "https://rock-paper-scissors-9523b-default-rtdb.europe-west1.firebasedatabase.app/"
+  };
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const referenceInDB = ref(db, "gameScores");
+
 const choicesContEl = document.getElementById("choices-container");
 const gameStateEl = document.getElementById("game-state");
 const scoreDisplayEl = document.getElementById("score-display");
@@ -6,6 +21,19 @@ const resetButtonEl = document.getElementById("reset-button");
 const resetKey = "reset";
 
 const gameElements = ["rock" , "paper" , "scissors"];
+
+onValue(referenceInDB, function (snapshot) {
+    const snapshotDoesExist = snapshot.exists();
+
+    if (snapshotDoesExist) {
+        const snapshotValue = snapshot.val();
+        const gameScores = Object.values(snapshotValue);
+
+        const playerScore = gameScores[1];
+        const computerScore = gameScores[0];
+        renderScore(playerScore, computerScore);
+    }
+});
 
 let playerScore = 0;
 let computerScore = 0;
@@ -37,6 +65,7 @@ function renderGame(choice) {
     }
 
     renderState(chooseWinner(choice, computerChosenElement));
+    updateScores(playerScore, computerScore);
 };
 
 function chooseElement() {
@@ -96,7 +125,19 @@ function renderScore(playerScore, computerScore) {
 function resetGame() {
     playerScore = 0;
     computerScore = 0;
+
+    set(referenceInDB, {
+        playerScore: playerScore,
+        computerScore: computerScore
+    });
     
     renderState(resetKey);
     renderScore(playerScore, computerScore);
+};
+
+function updateScores(playerScore, computerScore) {
+    set(referenceInDB, {
+        playerScore: playerScore,
+        computerScore: computerScore
+    });
 };
