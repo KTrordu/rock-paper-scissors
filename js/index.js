@@ -2,6 +2,8 @@ const choicesEl = document.querySelectorAll(".choices");
 const choicesContEl = document.getElementById("choices-container");
 const gameStateEl = document.getElementById("game-state");
 const scoreDisplayEl = document.getElementById("score-display");
+const resetButtonEl = document.getElementById("reset-button");
+const resetKey = "reset";
 
 const gameElements = ["rock" , "paper" , "scissors"];
 
@@ -24,6 +26,7 @@ function imageGroupPressed(element) {
 };
 
 choicesContEl.addEventListener("click", imageGroupPressed);
+resetButtonEl.addEventListener("click", resetGame);
 
 function renderGame(choice) {
     const computerChosenElement = chooseElement();
@@ -77,6 +80,8 @@ function renderState(result) {
 
         case 2: gameStateEl.textContent = "There has been an error.";
         break;
+
+        case "reset": gameStateEl.textContent = "";
     };
 };
 
@@ -86,4 +91,12 @@ function renderTie() {
 
 function renderScore(playerScore, computerScore) {
     scoreDisplayEl.innerHTML = `${playerScore} - ${computerScore}`;
+};
+
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    
+    renderState(resetKey);
+    renderScore(playerScore, computerScore);
 };
