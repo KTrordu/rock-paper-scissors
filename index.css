@@ -79,7 +79,95 @@ body {
     color: white;
 }
 
+@media only screen and (min-width: 600px) {
+    .choices-container {
+        flex-direction: column;
+    }
+
+    .choices{
+        width: 20%;
+        margin-bottom: 4vw;
+        margin-top: 5vw;
+    }
+
+    #site-header, #score-display, #game-state {
+        font-size: 3em;
+    }
+
+    #site-header {
+        margin-bottom: 0;
+    }
+
+    #reset-button {
+        font-size: 3em;
+        margin-top: 2vw;
+    }
+
+}
+
 @media only screen and (min-width: 768px) {
+    .choices-container {
+        flex-direction: row;
+    }
+
+    .choices{
+        width: 20%;
+        margin-bottom: 4vw;
+        margin-right: 10vw;
+        margin-top: 5vw;
+    }
+
+    .choices:last-child {
+        margin-right: 0;
+    }
+
+    #site-header, #score-display, #game-state {
+        font-size: 3em;
+    }
+
+    #site-header {
+        margin-bottom: 0;
+    }
+
+    #reset-button {
+        font-size: 3em;
+        margin-top: 2vw;
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+    .choices-container {
+        flex-direction: row;
+    }
+
+    .choices{
+        width: 12%;
+        margin-bottom: 4vw;
+        margin-right: 10vw;
+        margin-top: 5vw;
+    }
+
+    .choices:last-child {
+        margin-right: 0;
+    }
+
+    #site-header, #score-display, #game-state {
+        font-size: 3em;
+    }
+
+    #site-header {
+        margin-bottom: 0;
+    }
+
+    #reset-button {
+        font-size: 2em;
+        margin-top: 2vw;
+    }
+
+}
+
+@media only screen and (min-width: 1300px) {
     .choices-container {
         flex-direction: row;
     }
